@@ -1,6 +1,8 @@
 ﻿public class Program
 {
     private static Dictionary<string, string> wordDictionary = new Dictionary<string, string>();
+    private static string dictionaryFilePath = "../../../dictionary.txt";
+    
     enum Commands { AddTranslation, Translate };
 
     public static void ConsoleMenu()
@@ -41,10 +43,11 @@
     public static void AddTranslation(string inputStr)
     {
         ReadFile($"../../../{inputStr}.txt");
+        WriteFile(dictionaryFilePath);
     }
 
     public static void Translate(string inputStr)
-    {   
+    {
         if (wordDictionary.TryGetValue(inputStr, out string translateWord))
         {
             Console.WriteLine(translateWord);
@@ -74,15 +77,33 @@
                 while ((line = reader.ReadLine()) != null)
                 {
                     words = FillDictionary(line);
-                    dictionary.Add(words[0], words[1]);
+                    if (dictionary.ContainsKey(words[0])){
+                        dictionary[words[0]] = words[1];
+                    }
+                    else
+                    {
+                        dictionary.Add(words[0], words[1]);
+                    }
                 }
                 wordDictionary = dictionary;
+                Console.WriteLine("File read successfully");
             }
         }
         catch (InvalidDataException ex)
         {
             Console.WriteLine($"Eror: data processing eror: {ex.Message}");
             dictionary.Clear();
+        }
+    }
+
+    public static void WriteFile(string filePath)
+    {
+        using (StreamWriter writer = new StreamWriter(filePath))
+        {
+            foreach (var element in wordDictionary)
+            {
+                writer.WriteLine($"{element.Key} {element.Value}");
+            }
         }
     }
 
@@ -103,6 +124,7 @@
 
     public static void Main(string[] args)
     {
+        ReadFile(dictionaryFilePath);
         ConsoleMenu();
     }
 }
