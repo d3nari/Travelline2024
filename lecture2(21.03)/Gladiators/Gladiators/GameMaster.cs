@@ -67,7 +67,7 @@ namespace Gladiators.Models.Fighters
             int damage = attacker.CalculateDamage();
             target.TakeDamage(damage);
 
-            Console.WriteLine($"{attacker.Name} attacks {target.Name} for {damage} damage. {target.Name}'s health: {target.CurrentHealth}");
+            Console.WriteLine($"{attacker.Name} attacks {target.Name} for {damage} damage. {target.MaxArmor} damage blocked by armor. {target.Name}'s health: {target.CurrentHealth}");
 
             if (IsDefeated(target))
             {

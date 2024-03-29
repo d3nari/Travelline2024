@@ -118,7 +118,7 @@ namespace Gladiators
 
         public static Fighter CreateRandomFighter()
         {
-            string[] names = { "Aldric", "Elara", "Grom", "Luna", "Thalia", "Varian" };
+            string[] names = { "Aldric", "Elara", "Grom", "Luna", "Thalia", "Varian", "Charlie", "Dalhia" };
             string randomName = names[random.Next(names.Length)];
 
             IWeapon randomWeapon = GetRandomWeapon();

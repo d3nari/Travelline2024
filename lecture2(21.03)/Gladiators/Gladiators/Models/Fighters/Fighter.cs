@@ -42,7 +42,7 @@ namespace Gladiators.Models.Fighters
 
             if (random.NextDouble() < criticalChance)
             {
-                return (int)(baseDamage * criticalMultiplier * randomFactor);
+                return (int)(baseDamage * randomFactor * criticalMultiplier);
             }
             else
             {
