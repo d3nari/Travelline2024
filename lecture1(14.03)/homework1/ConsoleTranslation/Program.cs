@@ -3,11 +3,12 @@
     private static Dictionary<string, string> wordDictionary = new Dictionary<string, string>();
     private static string dictionaryFilePath = "../../../dictionary.txt";
     
-    enum Commands { AddTranslation, Translate };
+    enum Commands { AddTranslation = 1, Translate = 2, Exit = 3};
 
     public static void ConsoleMenu()
     {
-        while (true)
+        bool isContinue = true; 
+        while (isContinue)
         {
             PrintMenu();
             string menuInput = Console.ReadLine();
@@ -24,6 +25,12 @@
                         Console.WriteLine("Enter word: ");
                         Translate(Console.ReadLine());
                         break;
+                    case Commands.Exit:
+                        isContinue = false;
+                        break;
+                    default:
+                        Console.WriteLine("Eror: wrong command");
+                        break;
                 }
             }
             else
@@ -38,6 +45,7 @@
         Console.WriteLine("Translation commands menu");
         Console.WriteLine("1.AddTranslation");
         Console.WriteLine("2.Translate");
+        Console.WriteLine("3.Exit");
     }
 
     public static void AddTranslation(string inputStr)
