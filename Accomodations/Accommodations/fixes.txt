@@ -1,0 +1,19 @@
+﻿AccommodationProcessor 54 строчка - проверка валидности введенной даты при вызове команды book
+AccommodationProcessor 59 строчка - проверка валидности введенной валюты при вызове команды book
+AccommodationProcessor 132 строчка - проверка валидности введенной даты при вызове команды search
+AccommodationProcessor 96 строчка - проверка если ккомандный лист пуст при вызове команды undo
+AccommodationProcessor 87 строчка - проверка валидности guid при вызове команды cancel
+AccommodationProcessor 117 строчка - проверка валидности guid при вызове команды find
+
+
+
+BookingService 105 строчка - корректный поиск бронирования по дате конца бронирования
+BookingService 34 строчка - проверка равнества даты прибытия и отбытия
+BookingService 121 строчка - корректный подсчет дней до прибытия
+BookingService 124 строчка - корректный подсчет суммы штрафа
+BookingService 151 строчка - корректный подсчет стоимости бронирования 
+
+
+FindBookingByIdCommand 12 строчка - корректное отображение имени
+
+https://docs.google.com/document/d/1gEnDT17OrOWdFJaiYdyFnYnHL15aZ4rV746OY7XVuOo/edit?usp=sharing
